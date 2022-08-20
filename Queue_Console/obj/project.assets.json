@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Queue_Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Queue_Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Queue_Repository.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Queue_Repository/1.0.0": {
+      "type": "project",
+      "path": "../Queue_Repository/Queue_Repository.csproj",
+      "msbuildProject": "../Queue_Repository/Queue_Repository.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Queue_Repository >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\clarf\\.nuget\\packages\\": {}
@@ -31,7 +50,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\ElevenFiftyAcademy149\\codingFoundations\\assignments\\QueueRepo\\Queue_Repository\\Queue_Repository.csproj": {
+              "projectPath": "C:\\ElevenFiftyAcademy149\\codingFoundations\\assignments\\QueueRepo\\Queue_Repository\\Queue_Repository.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

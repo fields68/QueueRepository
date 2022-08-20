@@ -1,0 +1,12 @@
+C:\ElevenFiftyAcademy149\codingFoundations\assignments\QueueRepo\Queue_Repository\bin\Debug\net6.0\Queue_Repository.deps.json
+C:\ElevenFiftyAcademy149\codingFoundations\assignments\QueueRepo\Queue_Repository\bin\Debug\net6.0\Queue_Repository.dll
+C:\ElevenFiftyAcademy149\codingFoundations\assignments\QueueRepo\Queue_Repository\bin\Debug\net6.0\Queue_Repository.pdb
+C:\ElevenFiftyAcademy149\codingFoundations\assignments\QueueRepo\Queue_Repository\obj\Debug\net6.0\Queue_Repository.csproj.AssemblyReference.cache
+C:\ElevenFiftyAcademy149\codingFoundations\assignments\QueueRepo\Queue_Repository\obj\Debug\net6.0\Queue_Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\ElevenFiftyAcademy149\codingFoundations\assignments\QueueRepo\Queue_Repository\obj\Debug\net6.0\Queue_Repository.AssemblyInfoInputs.cache
+C:\ElevenFiftyAcademy149\codingFoundations\assignments\QueueRepo\Queue_Repository\obj\Debug\net6.0\Queue_Repository.AssemblyInfo.cs
+C:\ElevenFiftyAcademy149\codingFoundations\assignments\QueueRepo\Queue_Repository\obj\Debug\net6.0\Queue_Repository.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyAcademy149\codingFoundations\assignments\QueueRepo\Queue_Repository\obj\Debug\net6.0\Queue_Repository.dll
+C:\ElevenFiftyAcademy149\codingFoundations\assignments\QueueRepo\Queue_Repository\obj\Debug\net6.0\refint\Queue_Repository.dll
+C:\ElevenFiftyAcademy149\codingFoundations\assignments\QueueRepo\Queue_Repository\obj\Debug\net6.0\Queue_Repository.pdb
+C:\ElevenFiftyAcademy149\codingFoundations\assignments\QueueRepo\Queue_Repository\obj\Debug\net6.0\ref\Queue_Repository.dll
