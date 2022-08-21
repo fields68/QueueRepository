@@ -2,30 +2,29 @@ namespace Queue_Repository;
 
 public class QueueRepository
 {
-    protected readonly List<ClaimInfo> _claim = new List<ClaimInfo>();
+    protected readonly Queue<ClaimInfo> _claim = new Queue<ClaimInfo>();
 
     public bool AddNewClaim(ClaimInfo claim)
     {
         int prevCount = _claim.Count;
 
-        _claim.Add(claim);
+        _claim.Enqueue(claim);
 
         return prevCount < _claim.Count ? true : false;
     }
 
-    public List<ClaimInfo> ViewNextClaim()
+    public ClaimInfo NextClaim()
+    {
+
+        return _claim.Peek();
+    }
+    public Queue<ClaimInfo> GetAllClaims()
     {
         return _claim;
     }
-    public List<ClaimInfo> GetAllClaims()
+    public ClaimInfo DeleteClaim()
     {
-        return _claim;
+        return _claim.Dequeue();
+
     }
-    // public bool DeleteClaim() {
-    //     ClaimInfo itemToDelete = _claim;
-
-    //     bool deleteResult = _claim.Remove(itemToDelete);
-
-    //     return deleteResult;
-    // }
 }

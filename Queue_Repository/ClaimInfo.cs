@@ -27,7 +27,6 @@ public class ClaimInfo
         DateOfIncident = dateOfIncident;
         DateOfClaim = dateOfClaim;
     }
-
     public Claim ClaimType { get; set; }
     public string Description { get; set; }
 
