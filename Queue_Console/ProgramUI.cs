@@ -162,9 +162,9 @@ public class ProgramUI
         Console.Clear();
 
         System.Console.WriteLine(@"
-        Are you sure you want to process this claim?
-        1. Yes
-        2. No");
+Are you sure you want to process this claim?
+1. Yes
+2. No");
 
         string? yesNo = Console.ReadLine();
 
@@ -172,28 +172,41 @@ public class ProgramUI
         {
             case "1":
 
-                // if (_repo.GetAllClaims().Count > 0)
-                // {
-                //     bool deleteSuccessful = true;
-                // }
-                // else
-                // {
-                //     bool deleteSuccessful = false;
-                // }
-
                 if (_repo.GetAllClaims().Count > 0)
                 {
                     Console.Clear();
+
+                    // Had to call this within the if statement because it would cause an error if I loaded it before function could check if anything is in the queue.
                     ClaimInfo delNext = _repo.DeleteClaim();
 
 
-                    System.Console.WriteLine("Claim");
-                    System.Console.WriteLine(delNext.ClaimType);
-                    System.Console.WriteLine(delNext.Description);
-                    System.Console.WriteLine(delNext.DateOfIncident);
-                    System.Console.WriteLine(delNext.DateOfClaim);
 
-                    System.Console.WriteLine("has processed you may proceed on to the next");
+
+                    System.Console.WriteLine($@"
+    Claim —
+
+        Claim Type: {delNext.ClaimType}
+        
+        Descritption:
+        {delNext.Description}
+        
+        Claim Amount: ${delNext.ClaimAmount}
+        
+        Incident Date: {delNext.DateOfIncident}
+        
+        Claim Date: {delNext.DateOfClaim}
+        
+        {(delNext.IsValid ? "This claim was made within the 30 day time frame." : "This claim was NOT made within the 30 day time frame")} 
+
+    has been processed you may proceed on to the next claim.");
+
+                    // System.Console.WriteLine("Claim\n");
+                    // System.Console.WriteLine(delNext.ClaimType);
+                    // System.Console.WriteLine(delNext.Description);
+                    // System.Console.WriteLine(delNext.DateOfIncident);
+                    // System.Console.WriteLine(delNext.DateOfClaim);
+
+                    // System.Console.WriteLine("\nhas processed you may proceed on to the next");
                 }
                 else
                 {
@@ -231,7 +244,7 @@ public class ProgramUI
         Descritption:
         {claim.Description}
         
-        Claim Amount: {claim.ClaimAmount}
+        Claim Amount: ${claim.ClaimAmount}
         
         Incident Date: {claim.DateOfIncident}
         
