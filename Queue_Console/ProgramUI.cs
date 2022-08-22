@@ -113,7 +113,7 @@ public class ProgramUI
         string? amountString = Console.ReadLine();
         try
         {
-            newClaim.ClaimAmount = decimal.Parse(amountString);
+            newClaim.ClaimAmount = Math.Round(decimal.Parse(amountString), 2);
         }
         catch
         {
@@ -132,6 +132,7 @@ public class ProgramUI
         }
         catch
         {
+            System.Console.WriteLine("Please enter a valid date. Ex. — 2022,06,25");
             goto Error;
         }
 
@@ -146,6 +147,7 @@ public class ProgramUI
         }
         catch
         {
+            System.Console.WriteLine("Please enter a valid date. Ex. — 2022,06,25");
             goto Error;
         }
 
@@ -270,7 +272,7 @@ Are you sure you want to process this claim?
     {
 
         System.Console.WriteLine($@"
-        Claim Type: {claim.ClaimType}
+    Claim Type: {claim.ClaimType}
         
         Descritption:
         {claim.Description}
