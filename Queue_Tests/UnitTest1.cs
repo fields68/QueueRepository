@@ -55,7 +55,6 @@ public class UnitTest1
 
         int daysBetween = claim.DateOfClaim.DayNumber - claim.DateOfIncident.DayNumber;
 
-
         // Act
         bool expected = false;
         if (daysBetween <= 30)
