@@ -1,5 +1,6 @@
 using Queue_Repository;
 
+
 public class ProgramUI
 {
     private QueueRepository _repo = new QueueRepository();
@@ -67,6 +68,8 @@ public class ProgramUI
         Console.Clear();
 
         ClaimInfo newClaim = new ClaimInfo();
+        bool addResult = false;
+        int claimInt = 0;
 
         // ClaimType
         System.Console.WriteLine(@"Please select the type of claim that you wish to submit:
@@ -76,33 +79,84 @@ public class ProgramUI
                         3. Theft");
 
         string claimString = Console.ReadLine();
-        int claimInt = int.Parse(claimString);
-        newClaim.ClaimType = (Queue_Repository.ClaimInfo.Claim)claimInt;
+        try
+        {
+            claimInt = int.Parse(claimString);
+        }
+        catch
+        {
+            System.Console.WriteLine("Please enter a valid input. i.e. 1, 2, or3");
+            goto Error;
+        }
+        switch (claimInt)
+        {
+            case 1:
+                newClaim.ClaimType = (Queue_Repository.ClaimInfo.Claim)claimInt;
+                break;
+            case 2:
+                newClaim.ClaimType = (Queue_Repository.ClaimInfo.Claim)claimInt;
+                break;
+            case 3:
+                newClaim.ClaimType = (Queue_Repository.ClaimInfo.Claim)claimInt;
+                break;
+            default:
+                System.Console.WriteLine("Please enter a valid input. i.e. 1, 2, or3");
+                goto Error;
+        }
+
 
         // Description
+        Console.Clear();
         System.Console.WriteLine("Please write a description of the incident:");
 
         newClaim.Description = Console.ReadLine();
 
         // Claim Amount
+        Console.Clear();
         System.Console.WriteLine("Please enter claim amount:");
 
         string amountString = Console.ReadLine();
-        newClaim.ClaimAmount = decimal.Parse(amountString);
+        try
+        {
+            newClaim.ClaimAmount = decimal.Parse(amountString);
+        }
+        catch
+        {
+            System.Console.WriteLine("Please enter a valid number amount.");
+            goto Error;
+        }
 
         // Date of Incident
-        System.Console.WriteLine("Please enter the date when the incident occured: format yyyy, mm, dd");
+        Console.Clear();
+        System.Console.WriteLine("Please enter the date when the incident occured: format yyyy,mm,dd");
 
         string dIncidentString = Console.ReadLine();
-        newClaim.DateOfIncident = DateOnly.Parse(dIncidentString);
+        try
+        {
+            newClaim.DateOfIncident = DateOnly.Parse(dIncidentString);
+        }
+        catch
+        {
+            goto Error;
+        }
 
         // Date of Claim
+        Console.Clear();
         System.Console.WriteLine("Please enter the date when the Claim was filed: format yyyy, mm, dd");
 
         string dClaimString = Console.ReadLine();
-        newClaim.DateOfClaim = DateOnly.Parse(dClaimString);
+        try
+        {
+            newClaim.DateOfClaim = DateOnly.Parse(dClaimString);
+        }
+        catch
+        {
+            goto Error;
+        }
 
-        bool addResult = _repo.AddNewClaim(newClaim);
+        addResult = _repo.AddNewClaim(newClaim);
+
+    Error:
 
         if (addResult)
         {
@@ -111,9 +165,9 @@ public class ProgramUI
         }
         else
         {
-            Console.Clear();
             System.Console.WriteLine("There was an issue adding new claim");
         }
+
     }
 
     // View Next
@@ -179,9 +233,6 @@ Are you sure you want to process this claim?
                     // Had to call this within the if statement because it would cause an error if I loaded it before function could check if anything is in the queue.
                     ClaimInfo delNext = _repo.DeleteClaim();
 
-
-
-
                     System.Console.WriteLine($@"
     Claim —
 
@@ -199,14 +250,6 @@ Are you sure you want to process this claim?
         {(delNext.IsValid ? "This claim was made within the 30 day time frame." : "This claim was NOT made within the 30 day time frame")} 
 
     has been processed you may proceed on to the next claim.");
-
-                    // System.Console.WriteLine("Claim\n");
-                    // System.Console.WriteLine(delNext.ClaimType);
-                    // System.Console.WriteLine(delNext.Description);
-                    // System.Console.WriteLine(delNext.DateOfIncident);
-                    // System.Console.WriteLine(delNext.DateOfClaim);
-
-                    // System.Console.WriteLine("\nhas processed you may proceed on to the next");
                 }
                 else
                 {
