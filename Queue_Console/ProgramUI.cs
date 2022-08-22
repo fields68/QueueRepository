@@ -31,19 +31,15 @@ public class ProgramUI
             switch (input)
             {
                 case "1":
-                    // System.Console.WriteLine("Add a new claim");
                     CreateNewClaim();
                     break;
                 case "2":
-                    // System.Console.WriteLine("View the next claim ");
                     ViewNextClaim();
                     break;
                 case "3":
-                    // System.Console.WriteLine("See a list of all claims");
                     ViewAllClaims();
                     break;
                 case "4":
-                    // System.Console.WriteLine("Process (remove) the next claim");
                     DeleteNextClaim();
                     break;
                 case "5":
@@ -78,7 +74,7 @@ public class ProgramUI
                         2. Home
                         3. Theft");
 
-        string claimString = Console.ReadLine();
+        string? claimString = Console.ReadLine();
         try
         {
             claimInt = int.Parse(claimString);
@@ -104,7 +100,6 @@ public class ProgramUI
                 goto Error;
         }
 
-
         // Description
         Console.Clear();
         System.Console.WriteLine("Please write a description of the incident:");
@@ -115,7 +110,7 @@ public class ProgramUI
         Console.Clear();
         System.Console.WriteLine("Please enter claim amount:");
 
-        string amountString = Console.ReadLine();
+        string? amountString = Console.ReadLine();
         try
         {
             newClaim.ClaimAmount = decimal.Parse(amountString);
@@ -130,7 +125,7 @@ public class ProgramUI
         Console.Clear();
         System.Console.WriteLine("Please enter the date when the incident occured: format yyyy,mm,dd");
 
-        string dIncidentString = Console.ReadLine();
+        string? dIncidentString = Console.ReadLine();
         try
         {
             newClaim.DateOfIncident = DateOnly.Parse(dIncidentString);
@@ -144,7 +139,7 @@ public class ProgramUI
         Console.Clear();
         System.Console.WriteLine("Please enter the date when the Claim was filed: format yyyy, mm, dd");
 
-        string dClaimString = Console.ReadLine();
+        string? dClaimString = Console.ReadLine();
         try
         {
             newClaim.DateOfClaim = DateOnly.Parse(dClaimString);
@@ -157,7 +152,6 @@ public class ProgramUI
         addResult = _repo.AddNewClaim(newClaim);
 
     Error:
-
         if (addResult)
         {
             Console.Clear();
@@ -167,7 +161,6 @@ public class ProgramUI
         {
             System.Console.WriteLine("There was an issue adding new claim");
         }
-
     }
 
     // View Next
@@ -177,7 +170,6 @@ public class ProgramUI
 
         Queue<ClaimInfo> claimQueue = _repo.GetAllClaims();
 
-        // DisplayClaimInfo(viewNext);
         if (claimQueue.Count > 0)
         {
             ClaimInfo viewNext = _repo.NextClaim();
@@ -187,8 +179,6 @@ public class ProgramUI
         {
             System.Console.WriteLine("There are no claims to be viewed at this moment.");
         }
-
-
     }
     // View All
     private void ViewAllClaims()
@@ -263,8 +253,6 @@ Are you sure you want to process this claim?
                 System.Console.WriteLine("Please enter valid option. i.e 1 or 2");
                 break;
         }
-
-
     }
     private void Seed()
     {
